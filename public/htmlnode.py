@@ -3,15 +3,15 @@ class HTMLNode():
         self.tag = tag
         self.value = value
         self.children = children
-        self.props = dict
+        self.props = props
 
     def to_html(self):
-        raise NotImplementedError()
+        raise NotImplementedError("Child classes will override this function.")
 
     def props_to_html(self) -> str:
         props_str = ""
-        for prop in self.props:
-            props_str.append(f" {prop}=\"{self.props[prop]}\"")
+        for x in self.props:
+            props_str = props_str + f" {x}=\"{self.props[x]}\""
         return props_str
     
     def __repr__(self):
