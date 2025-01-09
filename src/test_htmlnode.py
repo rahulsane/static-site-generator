@@ -7,6 +7,14 @@ class TestHTMLNode(unittest.TestCase):
     def test_htmlnode_creation(self):
         node = HTMLNode("h1", "this is an h1", children=None, props=None)
         self.assertIsInstance(node, HTMLNode)
+        msg = '''
+HTMLNode object:
+tag: h1
+value: this is an h1
+props: None
+children: None
+'''
+        self.assertEqual(repr(node), msg)
 
     def test_to_html(self):
         node = HTMLNode("h1", "this is an h1", children=None, props=None)
