@@ -9,7 +9,7 @@ class HTMLNode():
         raise NotImplementedError("Child classes will override this function.")
 
     def props_to_html(self) -> str:
-        if len(self.props) == 0:
+        if not self.props:
             return ""
         props_str = ""
         for x in self.props:
@@ -28,7 +28,7 @@ children: {self.children}
 
 class LeafNode(HTMLNode):
     def __init__(self, tag: str = None, value: str = None, props: dict = None):
-        if len(value) == 0:
+        if not value:
             raise ValueError("'value' attribute required for LeafNode object")
         super().__init__(tag=tag, value=value, props=props)
 
